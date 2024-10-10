@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Blog Post Detail</title>
+	<link rel="icon" href="../static/images/transparent-blog-icon-removebg-preview.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+
+
+	<!-- Font -->
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+	<!-- Stylesheets -->
+	<link href="../static/common-css/bootstrap.css" rel="stylesheet">
+
+	<link href="../static/common-css/ionicons.css" rel="stylesheet">
+
+	<link href="../static/02-Single-post/css/styles.css" rel="stylesheet">
+
+	<link href="../static/02-Single-post/css/responsive.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+	<header>
+
+		<div class="top-menu">
+
+			<ul class="left-area welcome-area">
+				<li class="hello-blog">Hello nice people, welcome to my blog</li>
+				<li><a href="mailto:contact@juliblog.com">contact@juliblog.com</a></li>
+			</ul><!-- left-area -->
+
+
+			<div class="right-area">
+
+				<div class="src-area">
+					<form action="post">
+						<input class="src-input" type="text" placeholder="Search">
+						<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
+					</form>
+				</div><!-- src-area -->
+
+				<ul class="social-icons">
+					<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
+					<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
+					<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+					<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
+					<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
+				</ul><!-- right-area -->
+
+			</div><!-- right-area -->
+
+		</div><!-- top-menu -->
+
+		<div class="middle-menu center-text"><a href="#" class="logo"><img src="../static/images/logo.png" alt="Logo Image"></a></div>
+
+		<div class="bottom-area">
+
+			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
+
+			<ul class="main-menu visible-on-click" id="main-menu">
+				<li class="drop-down"><a href="/">HOME</a>
+				</li>
+				<li><a href="{% url 'me' %}">WHATS NEXT</a></li>
+				<li><a href="{% url 'about' %}">ABOUT</a></li>
+				<li><a href="{% url 'contact' %}">CONTACT</a></li>
+			</ul><!-- main-menu -->
+
+		</div><!-- conatiner -->
+	</header>
+
+	<section class="blog-area">
+		<div class="container">
+			<div class="row">
+				{% load static %}
+				<div>
+					<div class="blog-posts">
+						<div class="single-post">
+							<div class="image-wrapper"><img src="{% static 'images/' %}{{image}}" alt="Blog Image"></div>
+
+							<div class="icons">
+								<div class="left-area">
+									<a class="btn caegory-btn" href="#"><b>{{category}}</b></a>
+								</div>
+								<ul class="right-area social-icons">
+									<li><a href="#"><i class="ion-android-share-alt"></i>Share</a></li>
+									<li><a href="#"><i class="ion-android-favorite-outline"></i>03</a></li>
+									<li><a href="#"><i class="ion-android-textsms"></i>06</a></li>
+								</ul>
+							</div>
+							<p class="date"><em>{{date}}</em></p>
+							<h3 class="title"><a href="#"><b class="light-color">{{title}}</b></a></h3>
+							<p class="desc">{{desc}}</p>
+								
+						</div>
+						<div class="comments-area">
+							<h4 class="title"><b class="light-color">2 Comments</b></h4>
+							<div class="comment">
+								<div class="author-image"><img src="../static/images/author-2-150x150.jpg" alt="Autohr Image"></div>
+								<div class="comment-info">
+									<h5><b class="light-color">William Smith</b></h5>
+									<h6 class="date"><em>Monday, October 30, 2017</em></h6>
+									<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+										dolore magnam aliquam quaerat voluptatem.</p>
+								</div>
+							</div><!-- comment -->
+
+							<div class="comment">
+								<div class="author-image"><img src="../static/images/author-3-150x150.jpg" alt="Autohr Image"></div>
+								<div class="comment-info">
+									<h5><b class="light-color">William Smith</b></h5>
+									<h6 class="date"><em>Monday, October 30, 2017</em></h6>
+									<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+										dolore magnam aliquam quaerat voluptatem.</p>
+								</div>
+							</div><!-- comment -->
+
+						</div><!-- comments-area -->
+
+						<div class="leave-comment-area">
+							<h4 class="title"><b class="light-color">Leave a comment</b></h4>
+							<div class="leave-comment">
+
+								<form method="post">
+									<div class="row">
+										<div class="col-sm-6">
+											<input class="name-input" type="text" placeholder="Name">
+										</div>
+										<div class="col-sm-6">
+											<input class="email-input" type="text" placeholder="Email">
+										</div>
+										<div class="col-sm-12">
+											<input class="subject-input" type="text" placeholder="Subject">
+										</div>
+										<div class="col-sm-12">
+											<textarea class="message-input" rows="6" placeholder="Message"></textarea>
+										</div>
+										<div class="col-sm-12">
+											<button class="btn btn-2"><b>COMMENT</b></button>
+										</div>
+
+									</div><!-- row -->
+								</form>
+
+							</div><!-- leave-comment -->
+
+						</div><!-- comments-area -->
+
+					</div><!-- blog-posts -->
+				</div><!-- col-lg-4 -->
+
+
+			</div><!-- row -->
+		</div><!-- container -->
+	</section><!-- section -->
+
+
+	<section class="footer-instagram-area">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h5 class="title"><b class="light-color">Follow me &copy; instagram</b></h5>
+				</div><!-- col-lg-4 -->
+			</div><!-- row -->
+		</div><!-- container -->
+
+		<ul class="instagram">
+			<li><a href="#"><img src="../static/images/instragram-1-300x400.jpg" alt="Instagram Image"></a></li>
+			<li><a href="#"><img src="../static/images/instragram-2-300x400.jpg" alt="Instagram Image"></a></li>
+			<li><a href="#"><img src="../static/images/instragram-3-300x400.jpg" alt="Instagram Image"></a></li>
+			<li><a href="#"><img src="../static/images/instragram-4-300x400.jpg" alt="Instagram Image"></a></li>
+			<li><a href="#"><img src="../static/images/instragram-5-300x400.jpg" alt="Instagram Image"></a></li>
+			<li><a href="#"><img src="../static/images/instragram-6-300x400.jpg" alt="Instagram Image"></a></li>
+			<li><a href="#"><img src="../static/images/instragram-7-300x400.jpg" alt="Instagram Image"></a></li>
+		</ul>
+	</section><!-- section -->
+
+
+	<footer>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6">
+					<div class="footer-section">
+						<p class="copyright">Juli &copy; 2018. All rights reserved | Made with <i class="ion-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a></p>
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+				<div class="col-sm-6">
+					<div class="footer-section">
+						<ul class="social-icons">
+							<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
+							<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
+							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+							<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
+							<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
+						</ul>
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+			</div><!-- row -->
+		</div><!-- container -->
+	</footer>
+
+
+	<!-- SCIPTS -->
+	<script src="../static/common-js/jquery-3.1.1.min.js"></script>
+
+	<script src="../static/common-js/tether.min.js"></script>
+
+	<script src="../static/common-js/bootstrap.js"></script>
+
+	<script src="../static/common-js/scripts.js"></script>
+
+
+</body>
+</html>
