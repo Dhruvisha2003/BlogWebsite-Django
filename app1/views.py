@@ -1,5 +1,5 @@
 from django.shortcuts import *
-from .models import slide,blog,Myprofile,category
+from .models import slide,blog,Myprofile,category,comment
 
 # Create your views here.
 
@@ -13,10 +13,23 @@ def index(request):
     return render(request,'index.html',{'data':data,'blogs':blogs,'data1':data1,'cat':cat,'latest':latest})
 
 def about(request):
-    return render(request,'About-me.html')
+    cat = category.objects.all()
+    blogs = blog.objects.all().order_by('-date')
+    pic1 = blogs[:3]
+    return render(request,'About-me.html',{'cat':cat,'pic1':pic1})
 
 def contact(request):
-    return render(request,'Contact.html')
+    data1 = Myprofile.objects.all()
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        msg = request.POST.get('msg')
+        # if sub:
+        sub = request.POST.get('sub')
+
+        saved = comment(name=name,email=email,msg=msg,sub=sub)
+        saved.save()
+    return render(request,'Contact.html',{'data1':data1})
 
 def Me(request):
     data1 = Myprofile.objects.all()
@@ -24,5 +37,7 @@ def Me(request):
 
 def post(request,id):
     post_id = blog.objects.get(id=id)
-    print(post_id.date)
-    return render(request,'Single-post.html',{'image' : post_id.image,'category' : post_id.category,'date' : post_id.date, 'title' : post_id.title,'desc' : post_id.desc})
+    data = comment.objects.all()
+
+    return render(request,'Single-post.html',{'image' : post_id.image,'category' : post_id.category,'date' : post_id.date, 'title' : post_id.title,'desc' : post_id.desc,'data':data})
+

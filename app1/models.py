@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -15,7 +16,7 @@ class blog(models.Model):
     category = models.ForeignKey(category,on_delete=models.CASCADE)
     date = models.DateField()
     title = models.CharField(max_length=250)
-    desc = models.CharField(max_length=10000)
+    desc = RichTextField()
 
     def __str__(self):
         return self.title
@@ -25,12 +26,21 @@ class slide(models.Model):
     image = models.ImageField()
     name = models.ForeignKey(category,on_delete=models.CASCADE,default=1)
 
+
 class Myprofile(models.Model):
     img = models.ImageField()
     name = models.CharField(max_length=50)
-    desc = models.CharField(max_length=10000)
+    desc = RichTextField()
 
     def __str__(self):
         return self.name
 
 
+class comment(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=20)
+    sub = models.CharField(max_length=100,null=True,blank=True)
+    msg = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.name

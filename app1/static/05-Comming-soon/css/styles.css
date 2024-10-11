@@ -140,7 +140,7 @@ header .logo img{ height: 100%; width: auto; }
 4. REMAINING TIME
 --------------------------------- */
 
-.remaining-time{ padding: 80px 0 50px; text-align: center; }
+.remaining-time{ padding: 200px 0 50px; text-align: center; }
 
 .remaining-time .time-sec{ position: relative; display: inline-block; width: 25%; }
 

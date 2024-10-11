@@ -15,6 +15,9 @@
 
 	<!-- Stylesheets -->
 
+	<link href="../static/01-homepage/css/styles.css" rel="stylesheet">
+
+
 	<link href="../static/common-css/bootstrap.css" rel="stylesheet">
 
 	<link href="../static/common-css/ionicons.css" rel="stylesheet">
@@ -28,8 +31,53 @@
 <body>
 
 
-	<header class="center-text">
-		<a href="#" class="logo"><img src="../static/images/logo.png" alt="Logo Image"></a>
+	<header>
+
+		<div class="top-menu">
+
+			<ul class="left-area welcome-area">
+				<li class="hello-blog">Hello nice people, welcome to my blog</li>
+				<li><a href="mailto:contact@juliblog.com">contact@juliblog.com</a></li>
+			</ul><!-- left-area -->
+
+
+			<div class="right-area">
+
+				<div class="src-area">
+					<form action="post">
+						<input class="src-input" type="text" placeholder="Search">
+						<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
+					</form>
+				</div><!-- src-area -->
+
+				<ul class="social-icons">
+					<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
+					<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
+					<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+					<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
+					<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
+				</ul><!-- right-area -->
+
+			</div><!-- right-area -->
+
+		</div><!-- top-menu -->
+
+		<div class="middle-menu center-text"><a href="#" class="logo"><img src="../static/images/logo.png"
+					alt="Logo Image"></a></div>
+
+		<div class="bottom-area">
+
+			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
+
+			<ul class="main-menu visible-on-click" id="main-menu">
+				<li class="drop-down"><a href="/">HOME</a>
+				</li>
+				<li><a href="{% url 'me' %}">PROFILE</a></li>
+				<li><a href="{% url 'about' %}">ABOUT</a></li>
+				<li><a href="{% url 'contact' %}">CONTACT</a></li>
+			</ul> <!-- main-menu -->
+
+		</div><!-- conatiner -->
 	</header>
 
 
@@ -60,14 +108,15 @@
 					<p class="desc">{{i.desc}}</p>
 
 					<div class="signature-image"><img src="../static/images/signature-image.png" alt="Signature Image"></div>
+					
 					<!-- <a class="read-more-link" href="#"><b>READ MORE</b></a> -->
 
 				</div>
 				{% endfor %}
 
-			</div><!-- col-sm-12 -->
-		</div><!-- row -->
-	</div><!-- container -->
+			</div>
+		</div>
+	</div>
 
 
 
@@ -78,9 +127,9 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<h5 class="title"><b class="light-color">Follow me &copy; instagram</b></h5>
-				</div><!-- col-lg-4 -->
-			</div><!-- row -->
-		</div><!-- container -->
+				</div>
+			</div>
+		</div>
 
 		<ul class="instagram">
 			<li><a href="#"><img src="../static/images/instragram-1-300x400.jpg" alt="Instagram Image"></a></li>
