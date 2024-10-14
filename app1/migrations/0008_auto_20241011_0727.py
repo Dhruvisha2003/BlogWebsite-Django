@@ -7,7 +7,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app1', '0007_comment'),
+        ('app1', '0006_alter_myprofile_desc'),
     ]
 
     operations = [

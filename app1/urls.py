@@ -23,5 +23,5 @@ urlpatterns = [
     path('About/',views.about,name='about' ),
     path('ContactUs/',views.contact,name='contact' ),
     path('Profile/',views.Me,name='me' ),
-    path('Post/<int:id> ',views.post,name='post'),  
+    # path('/<str:title>/ ',views.post,name='post'),  
 ]

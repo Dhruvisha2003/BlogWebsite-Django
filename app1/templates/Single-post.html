@@ -103,7 +103,7 @@
 
 						</div>
 						<div class="comments-area">
-							<h4 class="title"><b class="light-color">{{i}} Comments</b></h4>
+							<h4 class="title"><b class="light-color">Comments</b></h4>
 							{% for i in comments %}
 							<div class="comment">
 								<div class="author-image"><img src="../static/images/download.jpg" alt="Autohr Image">
@@ -111,7 +111,6 @@
 								<div class="comment-info">
 									<h5><b class="light-color">{{i.name}}</b></h5>
 									<h6 class="date"><em>{{i.email}}</em></h6>
-									<p>SUBJECT : {{i.sub}}</p>
 									<p>MESSAGE : {{i.msg}}</p>
 								</div>
 							</div>
@@ -120,32 +119,36 @@
 							{% endfor %}
 
 						</div>
-						<form method="post">
-							{% csrf_token %}
-							<div class="row">
-								<div class="col-sm-6">
-									<input class="name-input" type="text" placeholder="Name" name="name" required>
-								</div>
-								<div class="col-sm-6">
-									<input class="email-input" type="text" placeholder="Email" name="email" required>
-								</div>
-								<div class="col-sm-12">
-									<input class="subject-input" type="text" placeholder="Subject" name="sub">
-								</div>
-								<div class="col-sm-12">
-									<textarea class="message-input" rows="6" placeholder="Message" name="msg" required></textarea>
-								</div>
-								<div class="col-sm-12">
-									<button class="btn btn-2"><b>Send</b></button>
-								</div>
+						<div class="leave-comment-area">
+							<h4 class="title"><b class="light-color">Leave a comment</b></h4>
+							<div class="leave-comment">
+								<form method="post">
+									{% csrf_token %}
+									<div class="row">
+										<div class="col-sm-6">
+											<input class="name-input" type="text" placeholder="Name" name="name">
+										</div>
+										<div class="col-sm-6">
+											<input class="email-input" type="text" placeholder="Email" name="email">
+										</div>
+										<div class="col-sm-12">
+											<input class="subject-input" type="text" placeholder="Subject" name="sub">
+										</div>
+										<div class="col-sm-12">
+											<textarea class="message-input" rows="6" placeholder="Message"
+												name="msg"></textarea>
+										</div>
+										<div class="col-sm-12">
+											<button class="btn btn-2"><b>COMMENT</b></button>
+										</div>
 
-							</div><!-- row -->
-						</form>
+									</div><!-- row -->
+								</form>
 
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 	</section>
 
 

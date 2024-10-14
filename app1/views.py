@@ -1,5 +1,5 @@
 from django.shortcuts import *
-from .models import slide,blog,Myprofile,category,comment
+from .models import slide,blog,Myprofile,category
 
 # Create your views here.
 
@@ -27,18 +27,18 @@ def Me(request):
     data1 = Myprofile.objects.all()
     return render(request,'Profile.html',{'data1':data1})
 
-def post(request,id):
-    post_id = blog.objects.get(id=id)
-    comments = comment.objects.filter(id=post_id)
+# def post(request,id):
+#     post_id = blog.objects.get(id=id)
+#     comments = comment.objects.filter(id=post_id.id)
 
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        msg = request.POST.get('msg')
-        sub = request.POST.get('sub')
+#     if request.method == 'POST':
+#         name = request.POST.get('name')
+#         email = request.POST.get('email')
+#         msg = request.POST.get('msg')
+#         sub = request.POST.get('sub')
 
-        saved = comment(name=name,email=email,msg=msg,sub=sub)
-        saved.save()
-        return redirect('post',id = post_id.id)
-    return render(request,'Single-post.html',{'image' : post_id.image,'category' : post_id.category,'date' : post_id.date, 'title' : post_id.title,'desc' : post_id.desc,'comments':comments})
+#         saved = comment(name=name,email=email,msg=msg,sub=sub)
+#         saved.save()
+#         return redirect('post',id = post_id.id)
+#     return render(request,'Single-post.html',{'image' : post_id.image,'category' : post_id.category,'date' : post_id.date, 'title' : post_id.title,'desc' : post_id.desc,'comments':comments})
 
