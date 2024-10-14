@@ -35,3 +35,12 @@ class Myprofile(models.Model):
     def __str__(self):
         return self.name
 
+class cmt(models.Model):
+    blog_id = models.ForeignKey(blog,on_delete=models.CASCADE,default=1)
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    sub = models.CharField(max_length=100)
+    msg = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.name
