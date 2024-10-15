@@ -127,7 +127,7 @@
 									<h6 class="date"><em>{{i.date}}</em></h6>
 									<h3 class="title"><a href="#"><b class="">{{i.title}}</b></a></h3>
 									<p>{{i.desc | slice:"0:100"}}...</p>
-									<a class="btn read-more-btn" href="{% url 'post' i.id %}"><b>READ MORE</b></a>
+									<a class="btn read-more-btn" href="{% url 'post_data' i.id %}"><b>READ MORE</b></a>
 								</div>
 							</div>
 							{% endfor %}
@@ -177,7 +177,7 @@
 										alt="Category Image"></div>
 								<div class="post-info">
 									<a class="btn category-btn" href="#">{{i.category}}</a>
-									<h6><a href="{% url 'post' i.id %}"><b class="light-color">{{i.title}}</b></a></h6>
+									<h6><a href="{% url 'post_data' i.id %}"><b class="light-color">{{i.title}}</b></a></h6>
 									<h6 class="date"><em>{{i.date}}</em></h6>
 								</div>
 							</div>

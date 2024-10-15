@@ -28,18 +28,26 @@ def Me(request):
     return render(request,'Profile.html',{'data1':data1})
 
 def post(request,id):
-    post_id = blog.objects.get(id=id)
-    comments = cmt.objects.filter(blog_id=post_id)
-
+    try:
+        post_id = blog.objects.get(id=id)
+        print(post_id)
+        # blog_id = post_id
+        # print(blog_id.id)
+    except blog.DoesNotExist:
+        return HttpResponse("Blog post not found", status=404)
+    
     if request.method == 'POST':
+        print(request.method)
         name = request.POST.get('name')
         email = request.POST.get('email')
         msg = request.POST.get('msg')
         sub = request.POST.get('sub')
-        blog_id = request.POST.get('blog_id')
 
-        saved = cmt(name=name,email=email,msg=msg,sub=sub,blog_id=blog_id) 
+        saved = cmt(name=name,email=email,msg=msg,sub=sub) 
         saved.save()
-        return redirect('post',blog_id = post_id)
+        print('data : ',saved)
+        return redirect('post_data')
+    comments = cmt.objects.filter(blog_id=post_id)
+    print(comments)
     return render(request,'Single-post.html',{'image' : post_id.image,'category' : post_id.category,'date' : post_id.date, 'title' : post_id.title,'desc' : post_id.desc,'comments':comments})
 

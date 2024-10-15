@@ -101,7 +101,7 @@
 								</ul>
 							</div>
 							<p class="date"><em>{{i.date}}</em></p>
-							<h3 class="title"><a href="{% url 'post' i.id %}"><b class="light-color">{{i.title}}</b></a></h3>
+							<h3 class="title"><a href="{% url 'post_data' i.id %}"><b class="light-color">{{i.title}}</b></a></h3>
 							<p class="desc">{{i.desc | slice:"0:587"}}</p>
 
 							<p class="desc">{{i.desc | slice:"587:715"}}.</p>
