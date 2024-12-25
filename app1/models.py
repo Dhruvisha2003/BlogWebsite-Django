@@ -36,7 +36,7 @@ class Myprofile(models.Model):
         return self.name
 
 class cmt(models.Model):
-    blog_id = models.ForeignKey(blog,on_delete=models.CASCADE)
+    blog_id = models.IntegerField()
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     sub = models.CharField(max_length=100)
